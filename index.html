@@ -1,295 +1,222 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>PFE - Premium For Everyone</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap');
-
-    :root {
-      --primary: #7B2CBF;
-      --secondary: #9D4EDD;
-      --accent: #FF9E00;
-      --light-bg: #f0f4ff;
-      --dark: #212529;
-    }
-
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom right, #fdfbff, #eef1ff);
-      color: var(--dark);
-    }
-
-    header {
-      background: linear-gradient(135deg, #7B2CBF, #FF9E00, #9D4EDD);
-      background-size: 400% 400%;
-      animation: gradientShift 10s ease infinite;
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-      position: relative;
-    }
-
-    @keyframes gradientShift {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      font-weight: 900;
-      animation: fadeInDown 1s ease-out forwards;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-
-    .tagline {
-      margin-top: 10px;
-      font-weight: 500;
-      opacity: 0.95;
-      animation: fadeInUp 1.2s ease-out forwards;
-    }
-
-    @keyframes fadeInDown {
-      0% {opacity: 0; transform: translateY(-20px);}
-      100% {opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes fadeInUp {
-      0% {opacity: 0; transform: translateY(20px);}
-      100% {opacity: 1; transform: translateY(0);}
-    }
-
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 18px;
-      padding: 25px;
-      margin: 30px 0;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-    }
-
-    .service-notice {
-      background: #FFF4D6;
-      padding: 15px;
-      border-radius: 12px;
-      text-align: center;
-      font-weight: 500;
-      color: #8a5b00;
-    }
-
-    input, button, select {
-      width: 100%;
-      padding: 15px;
-      margin: 12px 0;
-      border-radius: 12px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-
-    button {
-      background: linear-gradient(45deg, var(--accent), #ffc107);
-      color: var(--dark);
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .toggle-choice {
-      display: flex;
-      gap: 10px;
-    }
-
-    #nickname-result {
-      display: none;
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .nickname-display {
-      font-size: 1.5rem;
-      color: var(--primary);
-      margin: 15px 0;
-      word-break: break-word;
-    }
-
-    .icon {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-
-    .community-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .community-card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.3s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .community-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-
-    .community-icon {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    .coming-soon {
-      opacity: 0.6;
-      filter: grayscale(30%);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium For Everyone | Affordable Shared Subscriptions</title>
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #00c853;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --whatsapp: #25D366;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: var(--dark);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+        .price small {
+            font-size: 1rem;
+            color: #666;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+        .btn-whatsapp {
+            background: var(--whatsapp);
+            color: white;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+        #signup-form {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 3rem auto;
+            max-width: 600px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .payment-method {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <h1>Premium For Everyone</h1>
+            <p class="tagline">Access premium subscriptions at a fraction of the cost</p>
+        </div>
+    </header>
 
-<header>
-  <h1>PREMIUM FOR EVERYONE</h1>
-  <p class="tagline">Get premium services at shared prices</p>
-</header>
+    <div class="container">
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-icon">SP</div>
+                <h3>Spotify Premium</h3>
+                <p>Group Plan (Shared Account)</p>
+                <div class="price">₦900 <small>/month</small></div>
+                <button class="btn-whatsapp" onclick="startOrder('GROUP')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" width="20" alt="WhatsApp"> 
+                    Order via WhatsApp
+                </button>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">SP</div>
+                <h3>Spotify Premium</h3>
+                <p>Personal Plan (Private Account)</p>
+                <div class="price">₦1,500 <small>/month</small></div>
+                <button class="btn-whatsapp" onclick="startOrder('PERSONAL')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" width="20" alt="WhatsApp"> 
+                    Order via WhatsApp
+                </button>
+            </div>
+        </div>
 
-<div class="container">
-  <div class="card">
-    <div class="service-notice">
-      Only Spotify Premium available now. More services coming soon!
+        <div id="signup-form" style="display: none;">
+            <h2>Complete Your Order</h2>
+            <p style="margin: 1rem 0;">Your Order ID: <strong id="order-id"></strong></p>
+            
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Paystack_Logo.png/320px-Paystack_Logo.png" width="80" alt="Paystack">
+                </div>
+                <div class="payment-method">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/LiveBank_-_Nigeria.png/320px-LiveBank_-_Nigeria.png" width="80" alt="Bank Transfer">
+                </div>
+            </div>
+            
+            <a id="final-whatsapp" class="btn-whatsapp" style="max-width: 300px; margin: 0 auto;">
+                <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" width="20" alt="WhatsApp"> 
+                Confirm Payment via WhatsApp
+            </a>
+        </div>
     </div>
-    
-    <h3>Create Your PFE ID</h3>
-    <form onsubmit="generateNickname(event)">
-      <label for="service-select">Choose a service:</label>
-      <select id="service-select" required>
-        <option value="SPOTIFY">Spotify</option>
-        <option value="NETFLIX" disabled>Netflix (Coming soon)</option>
-      </select>
 
-      <div class="toggle-choice">
-        <button type="button" onclick="useNameMode('enter')">Enter Name</button>
-        <button type="button" onclick="useNameMode('generate')">Auto Generate</button>
-      </div>
-
-      <input type="text" id="user-name" placeholder="Enter your name" required>
-      
-      <button type="submit">GENERATE MY ID</button>
-    </form>
-    
-    <div id="nickname-result">
-      <div class="icon">✨</div>
-      <p>Your unique ID:</p>
-      <div class="nickname-display" id="generated-nickname">PFE-SPOTIFY-COOLUSER</div>
-      <a href="#" id="telegram-link" class="cta-button">
-        📲 SEND REQUEST TO ADMIN
-      </a>
-      <p style="font-size:0.8em; color:#666;">This ID will be your permanent identifier</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>PFE Communities</h2>
-    <p>Join service-specific communities to get recommendations and share experiences</p>
-    
-    <div class="community-grid">
-      <div class="community-card">
-        <div class="community-icon">🎵</div>
-        <h3>Spotify Premium</h3>
-        <p>Share playlists and get music recommendations</p>
-        <small>(You'll be added after registration)</small>
-      </div>
-      
-      <div class="community-card coming-soon">
-        <div class="community-icon">🎬</div>
-        <h3>Netflix Group</h3>
-        <p>Coming with service launch</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  let nameMode = 'enter';
-
-  function useNameMode(mode) {
-    nameMode = mode;
-    const input = document.getElementById('user-name');
-    input.disabled = (mode === 'generate');
-    if (mode === 'generate') {
-      input.value = generateRandomName();
-    } else {
-      input.value = '';
-    }
-  }
-
-  function generateRandomName() {
-    const adjectives = ['Cool', 'Epic', 'Mega', 'Ultra', 'Super', 'Hyper', 'Pro', 'Alpha', 'Beta', 'Gamma',
-      'Digital', 'Electric', 'Phantom', 'Stealth', 'Neon', 'Cosmic', 'Galactic', 'Atomic',
-      'Infinite', 'Legendary', 'Mystic', 'Ninja', 'Samurai', 'Viking', 'Dragon', 'Phoenix'];
-
-    const nouns = ['Wolf', 'Lion', 'Tiger', 'Bear', 'Eagle', 'Hawk', 'Falcon', 'Rhino', 'Panda', 'Fox',
-      'Warrior', 'Knight', 'Wizard', 'Mage', 'Sage', 'Champion', 'Hero', 'Master', 'Lord',
-      'Star', 'Comet', 'Planet', 'Nova', 'Pulsar', 'Quasar', 'Nebula', 'Cosmos', 'Orbit',
-      'Storm', 'Blaze', 'Flame', 'Thunder', 'Lightning', 'Hurricane', 'Typhoon', 'Tsunami'];
-
-    const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
-    const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
-    return `${randomAdjective}_${randomNoun}`.toUpperCase();
-  }
-
-  function generateNickname(event) {
-    event.preventDefault();
-
-    const service = document.getElementById('service-select').value.toUpperCase();
-    let userName = document.getElementById('user-name').value
-      .replace(/\s+/g, '_')
-      .replace(/[^a-zA-Z0-9_]/g, '')
-      .toUpperCase();
-
-    if (!userName) {
-      alert("Name is required.");
-      return;
-    }
-
-    const nickname = `PFE-${service}-${userName}`;
-
-    document.getElementById('generated-nickname').textContent = nickname;
-    document.getElementById('nickname-result').style.display = 'block';
-
-    const message = `Hello PFE Admin, my ID is ${nickname}, I want to join ${service} Premium`;
-    document.getElementById('telegram-link').href =
-      `https://t.me/PremiumforeveryonePFE?text=${encodeURIComponent(message)}`;
-
-    document.getElementById('nickname-result').scrollIntoView({ behavior: 'smooth' });
-  }
-</script>
-
+    <script>
+        function startOrder(planType) {
+            // Generate order ID (e.g. PFE-AB12)
+            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ123456789';
+            let orderId = 'PFE-';
+            for (let i = 0; i < 4; i++) {
+                orderId += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            
+            // Update UI
+            document.getElementById('order-id').textContent = orderId;
+            document.getElementById('signup-form').style.display = 'block';
+            
+            // Set WhatsApp link
+            const whatsappMsg = `Hello PFE Admin! 
+Order ID: ${orderId}
+Plan: Spotify ${planType} (${planType === 'GROUP' ? '₦900' : '₦1,500'})
+Payment Method: [Paystack/Bank Transfer]`;
+            
+            document.getElementById('final-whatsapp').href = 
+                `https://wa.me/234YOURPHONENUMBER?text=${encodeURIComponent(whatsappMsg)}`;
+            
+            // Scroll to form
+            document.getElementById('signup-form').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+    </script>
 </body>
 </html>
