@@ -1,256 +1,162 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Premium For Everyone | Affordable Shared Subscriptions</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premium For Everyone | Spotify Premium</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     :root {
-      --primary: #6a11cb;
-      --secondary: #2575fc;
-      --accent: #00c853;
-      --dark: #1a1a2e;
-      --light: #f8f9fa;
+      --primary: #1db954;
+      --dark: #0a0a0a;
+      --light: #f9f9f9;
       --whatsapp: #25D366;
     }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
     }
     body {
-      background: linear-gradient(135deg, #f5f7fa, #e4e8f0);
+      background: var(--light);
       color: var(--dark);
-      min-height: 100vh;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
     }
     header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: var(--primary);
       color: white;
-      padding: 3rem 2rem;
       text-align: center;
-      border-radius: 0 0 30px 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      padding: 3rem 1rem;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
     }
-    h1 {
-      font-size: 3rem;
-      font-weight: 800;
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
     }
     .tagline {
-      font-size: 1.2rem;
+      margin-top: 1rem;
+      font-size: 1.1rem;
       opacity: 0.9;
-      max-width: 700px;
-      margin: 0 auto;
     }
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+    .container {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: auto;
     }
-    .service-card {
+    .plan-card {
       background: white;
-      border-radius: 20px;
       padding: 2rem;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .service-card:hover {
-      transform: translateY(-5px);
-    }
-    .service-icon {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      color: white;
-      font-size: 1.5rem;
-    }
-    .coming-soon {
-      background: var(--accent);
-      color: white;
-      font-size: 0.8rem;
-      padding: 0.3rem 0.6rem;
       border-radius: 20px;
-      display: inline-block;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .plan-card h2 {
       margin-bottom: 0.5rem;
     }
     .price {
       font-size: 2rem;
-      font-weight: 700;
       color: var(--primary);
+      font-weight: bold;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 0.8rem;
       margin: 1rem 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
     }
-    .price small {
-      font-size: 1rem;
-      color: #666;
-    }
-    .btn-whatsapp {
-      background: var(--whatsapp);
-      color: white;
+    .btn {
+      display: inline-block;
       padding: 1rem 2rem;
       border-radius: 50px;
       font-weight: bold;
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      justify-content: center;
+      margin: 0.5rem;
       transition: all 0.3s ease;
+      cursor: pointer;
     }
-    .btn-whatsapp:hover {
+    .btn-green {
+      background: var(--whatsapp);
+      color: white;
+    }
+    .btn-blue {
+      background: #3b82f6;
+      color: white;
+    }
+    .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
-    input[type="text"] {
-      padding: 0.7rem;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      width: 100%;
-      margin: 0.5rem 0 1rem;
+    .referral-note {
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+      color: #555;
     }
-    #signup-form {
-      display: none;
-      background: white;
-      border-radius: 20px;
-      padding: 2rem;
-      margin-top: 3rem;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    footer {
       text-align: center;
-    }
-    .payment-methods {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-    }
-    .payment-method {
-      background: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-      border: 1px solid #eee;
+      font-size: 0.8rem;
+      color: #888;
+      padding: 2rem 1rem;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Premium For Everyone</h1>
-      <p class="tagline">Access premium subscriptions at a fraction of the cost</p>
-      <div style="margin-top: 1.5rem; font-size: 2rem;">▼</div>
-    </div>
-  </header>  <section class="container">
-    <h2 style="text-align:center; margin-bottom: 2rem;">How It Works</h2>
-    <div class="service-grid">
-      <div class="service-card">
-        <div class="service-icon">1</div>
-        <h3>Select a Plan</h3>
-        <p>Choose a premium plan that suits your needs.</p>
+  <header data-aos="fade-down">
+    <h1>Premium For Everyone</h1>
+    <p class="tagline">Get your personal Spotify Premium for just ₦900/month – or refer 3 friends and get it FREE</p>
+  </header>
+
+  <div class="container">
+    <section class="plan-card" data-aos="zoom-in">
+      <h2>Spotify Premium (Personal Account)</h2>
+      <p>Enjoy full premium benefits on your own account.</p>
+      <div class="price">₦900 / month</div>
+      <input type="text" id="username" placeholder="Enter your name" />
+      <div>
+        <button class="btn btn-green" onclick="startOrder()">Pay ₦900 Now</button>
+        <button class="btn btn-blue" onclick="referInstead()">Start Referring</button>
       </div>
-      <div class="service-card">
-        <div class="service-icon">2</div>
-        <h3>Place an Order</h3>
-        <p>Generate an ID & confirm your payment via WhatsApp.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">3</div>
-        <h3>Enjoy Premium</h3>
-        <p>We set it up for you — fast and secure access!</p>
-      </div>
-    </div>
-  </section>  <section class="container">
-    <h2 style="text-align:center; margin-top: 4rem;">Available Services</h2>
-    <div class="service-grid">
-      <div class="service-card">
-        <div class="service-icon">SP</div>
-        <h3>Spotify Premium</h3>
-        <p>Group Plan (Shared Account)</p>
-        <div class="price">₦900 <small>/month</small></div>
-        <input type="text" id="username1" placeholder="Enter your name">
-        <button class="btn-whatsapp" onclick="startOrder('GROUP', 'username1')">
-          <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" width="20"> Order via WhatsApp
-        </button>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">SP</div>
-        <h3>Spotify Premium</h3>
-        <p>Personal Plan (Private Account)</p>
-        <div class="price">₦1,500 <small>/month</small></div>
-        <input type="text" id="username2" placeholder="Enter your name">
-        <button class="btn-whatsapp" onclick="startOrder('PERSONAL', 'username2')">
-          <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" width="20"> Order via WhatsApp
-        </button>
-      </div>
-    </div>
-  </section>  <section class="container">
-    <h2 style="text-align:center; margin-top: 4rem;">Coming Soon</h2>
-    <div class="service-grid">
-      <div class="service-card">
-        <div class="coming-soon">Coming Soon</div>
-        <div class="service-icon">NF</div>
-        <h3>Netflix</h3>
-        <p>Shared or Personal Plans</p>
-        <div class="price">₦---</div>
-      </div>
-      <div class="service-card">
-        <div class="coming-soon">Coming Soon</div>
-        <div class="service-icon">YT</div>
-        <h3>YouTube Premium</h3>
-        <p>Ad-Free Experience</p>
-        <div class="price">₦---</div>
-      </div>
-      <div class="service-card">
-        <div class="coming-soon">Coming Soon</div>
-        <div class="service-icon">CG</div>
-        <h3>ChatGPT Plus</h3>
-        <p>Access GPT-4 affordably</p>
-        <div class="price">₦---</div>
-      </div>
-    </div>
-  </section>  <div id="signup-form" class="container">
-    <h2>Complete Your Order</h2>
-    <p>Your Order ID: <strong id="order-id"></strong></p>
-    <div class="payment-methods">
-      <div class="payment-method">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Paystack_Logo.png/320px-Paystack_Logo.png" width="80" alt="Paystack">
-      </div>
-      <div class="payment-method">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/LiveBank_-_Nigeria.png/320px-LiveBank_-_Nigeria.png" width="80" alt="Bank Transfer">
-      </div>
-    </div>
-    <a id="final-whatsapp" class="btn-whatsapp">
-      <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" width="20"> Confirm Payment via WhatsApp
-    </a>
-  </div>  <script>
-    function startOrder(planType, usernameInputId) {
-      const name = document.getElementById(usernameInputId).value.trim();
+      <p class="referral-note">Refer 3 people, get 1 month free. Keep referring to stay free!</p>
+    </section>
+
+    <section id="signup-form" class="plan-card" style="display:none;" data-aos="fade-up">
+      <h3>Your Order Details</h3>
+      <p>Order ID: <strong id="order-id"></strong></p>
+      <a id="final-whatsapp" class="btn btn-green" target="_blank">
+        Confirm Payment via WhatsApp
+      </a>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 PFE. All rights reserved.
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function startOrder() {
+      const name = document.getElementById("username").value.trim();
       if (!name) {
-        alert('Please enter your name.');
+        alert("Please enter your name.");
         return;
       }
-      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ123456789';
-      let code = '';
-      for (let i = 0; i < 4; i++) {
-        code += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      const orderId = `PFE-Spotify-${code}-${name}`;
-      document.getElementById('order-id').textContent = orderId;
-      document.getElementById('signup-form').style.display = 'block';
-      const price = planType === 'GROUP' ? '₦900' : '₦1,500';
-      const whatsappMsg = `Hello PFE Admin!\nOrder ID: ${orderId}\nPlan: Spotify ${planType}\nPrice: ${price}\nPayment Method: [Paystack/Bank Transfer]`;
-      document.getElementById('final-whatsapp').href = `https://wa.me/2347087675902?text=${encodeURIComponent(whatsappMsg)}`;
-      document.getElementById('signup-form').scrollIntoView({ behavior: 'smooth' });
+      const code = "PFE-SPOT-" + Math.random().toString(36).substring(2, 6).toUpperCase() + "-" + name;
+      document.getElementById("order-id").textContent = code;
+      const message = `Hello! I'd like to order Spotify Premium.\n\nOrder ID: ${code}\nPlan: Personal Account (₦900)\nPayment Method: [Paystack/Transfer]`;
+      document.getElementById("final-whatsapp").href = `https://wa.me/2347087675902?text=${encodeURIComponent(message)}`;
+      document.getElementById("signup-form").style.display = "block";
+      document.getElementById("signup-form").scrollIntoView({ behavior: "smooth" });
     }
-  </script></body>
+
+    function referInstead() {
+      const message = `Hi, I want to start referring friends to get free Spotify Premium.\n\nHow does it work?`;
+      window.open(`https://wa.me/2347087675902?text=${encodeURIComponent(message)}`, "_blank");
+    }
+  </script>
+</body>
 </html>
+
